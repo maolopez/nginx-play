@@ -1,0 +1,7 @@
+- include: hosts.yml
+- include: nginx_install.yml
+- include: nginx_config.yml
+- include: nginx_directories.yml
+- include: nginx_logrotate.yml
+- include: mount_folders.yml
+- include: symlink.yml

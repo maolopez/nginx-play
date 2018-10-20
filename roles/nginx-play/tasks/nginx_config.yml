@@ -1,0 +1,36 @@
+---
+# Setup Nginx config
+
+- name: NGINX | Bug fix | Create a dir
+  file:
+    path: /etc/systemd/system/nginx.service.d
+    state: directory
+  become: yes
+
+- name: NGINX | Bug fix |  Create a override service
+  raw: printf "[Service]\nExecStartPost=/bin/sleep 0.1\n" > /etc/systemd/system/nginx.service.d/override.conf
+  become: yes   
+
+- name: NGINX | Bug fix | reload systemctl daemon
+  systemd:
+    name: nginx
+    daemon_reload: yes
+  become: yes
+ 
+- name: NGINX | Copying nginx.conf
+  template:
+    src: "{{ role_path }}/templates/default.conf"
+    dest: "/etc/nginx/conf.d"
+    mode: 0644
+  notify:
+  - reload nginx
+  become: yes
+
+- name: NGINX | Start the nginx service
+  systemd:
+    name: nginx
+    state: started
+  become: yes
+
+...
+

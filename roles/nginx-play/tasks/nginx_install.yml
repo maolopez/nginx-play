@@ -1,0 +1,16 @@
+---
+# Install Nginx
+ 
+- name: NGINX | Installing NGINX
+  yum:
+    name: nginx-1.10.2-1.el7
+    state: present
+  become: yes
+  notify: start nginx
+
+- name: NGINX| Enable NGINX
+  systemd:
+    name: nginx
+    enabled: yes
+  become: yes
+...

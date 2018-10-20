@@ -1,0 +1,15 @@
+---
+- name: PLAYBOOK | Provision nginx-play servers
+  hosts: "{{ ANSIBLE_HOSTS }}"
+  user: app
+  roles:
+  - nginx-play
+
+  vars:
+    ANSIBLE_HOSTS: all
+    PLATFORM: nginx-play
+    ENV: "{{  lookup('ini', 'ENV file=/tmp/set_env')  }}"
+    CLOUD: "{{  lookup('ini', 'CLOUD file=/tmp/set_env')  }}"
+  vars_files:
+    - "inventories/{{ ENV }}/main.yml"
+...

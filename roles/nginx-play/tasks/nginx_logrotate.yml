@@ -1,0 +1,10 @@
+---
+# Setup logrotate for nginx
+
+- name: NGINX | Copying logrotate.d/nginx
+  template:
+    src: "{{ role_path }}/files/logrotate.d/nginx"
+    dest: "/etc/logrotate.d/nginx"
+    mode: 0644
+  become: yes
+...

@@ -1,0 +1,20 @@
+---
+# Create nginx directories
+
+- name: NGINX | Change /app owner
+  file:
+    path: "/app"
+    state: directory
+    owner: app
+    group: app
+  become: yes
+
+- name: NGINX | Creating logrotate.d
+  file:
+    path: "/etc/logrotate.d"
+    mode: 0755
+    state: directory
+    owner: app
+    group: app
+  become: yes
+...

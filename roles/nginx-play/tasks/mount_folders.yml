@@ -1,0 +1,11 @@
+---
+# Create folders to mount
+
+- name: Creates results | Change /app owner
+  file:
+    path: "/app/results"
+    state: directory
+    owner: app
+    group: app
+  become: yes
+...

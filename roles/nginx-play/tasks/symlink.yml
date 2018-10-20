@@ -1,0 +1,10 @@
+---
+# Create symlink for NGINX
+
+- name: symlink | setup nginx results symlink
+  file:
+    src: /app/results
+    dest: /usr/share/nginx/html/results
+    state: link
+    force: yes
+...
