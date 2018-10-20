@@ -1,0 +1,29 @@
+---
+
+######################
+# APPLICATION VERSIONS
+######################
+#GATLING_VERSION: "master"
+
+########
+# DOCKER
+########
+#DOCKER_HUB: "docker.production.jencomart.com"
+#DOCKER_LOGIN: "bucket_deploy"
+### ENCRYPT ME ###
+#DOCKER_PASSWORD: "Mypassword"
+### ENCRYPT ME ###
+
+##########
+# DOMAINS
+##########
+
+##########
+# ZABBIX
+##########
+#ZABBIX_HOST: "ca-zabbix.Jencomart.com"
+#ZABBIX_VERSION: "3.0.4-1"
+#ZABBIX_ENABLED: "false"
+#ZABBIX_INSTALL: "false"
+...
+
